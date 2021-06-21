@@ -1,0 +1,11 @@
+@import 'variables';
+
+#text() {
+  .text-color(@background-color) when (lightness(@background-color) >= 50%) {
+    color: #colors[dark];
+  }
+  
+  .text-color(@background-color) when (lightness(@background-color) < 50%) {
+    color: #colors[light];
+  }
+}

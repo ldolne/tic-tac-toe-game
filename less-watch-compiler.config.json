@@ -1,0 +1,10 @@
+{
+  "watchFolder": "assets/less",   
+  "outputFolder": "assets/css",
+  "mainFile": "main.less",   
+  "sourceMap": false,
+  "plugins": "",
+  "lessArgs": "",
+  "runOnce": false,
+  "enableJs": true
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe challenge game</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <section class="selection">
+    <h1 class="selection__title">Game's parameters</h1>
+    <p class="selection__text">First player chooses their mark:</p>
+    <select class="selection__select" id="markChoice">
+      <option value="x"><img src="assets/img/xMark.png" alt="x mark"></option>
+      <option value="o"><img src="assets/img/oMark.png" alt="o mark"></option>
+    </select>
+    <button class="selection__start" id="buttonStart">Start Game</button>
+  </section>
+  <section class="game">
+    <h1 class="game__title">Tic Tac Toe</h1>
+    <div class="game__grid">
+      <div class="cell" data-cell-index="0">0</div>
+      <div class="cell" data-cell-index="1">1</div>
+      <div class="cell" data-cell-index="2">2</div>
+      <div class="cell" data-cell-index="3">3</div>
+      <div class="cell" data-cell-index="4">4</div>
+      <div class="cell" data-cell-index="5">5</div>
+      <div class="cell" data-cell-index="6">6</div>
+      <div class="cell" data-cell-index="7">7</div>
+      <div class="cell" data-cell-index="8">8</div>
+    </div>
+    <div class="game__log">
+      <label for="log">Game's log:</label>
+      <textarea id="log" cols="40" rows="10"></textarea>
+    </div>
+    <h2 class="game__status" id="game-status"></h2>
+    <button class="game__restart">Restart Game</button>
+  </section>
+<script src="script.js"></script>
+</body>
+</html>
