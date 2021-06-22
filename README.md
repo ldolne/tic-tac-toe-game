@@ -24,10 +24,10 @@ Only one version of this game is and will be released.
 
 To build this project, I used HTML5, CSS3, Less (first time using it) and vanilla JavaScript.
 
-Two free fonts were use : Raleway (for texts) and Nico Moji (for x and o marks).
+Two free fonts were use: Raleway (for texts) and Nico Moji (for x and o marks).
 
 ## License
 
 None.
 
-I learned how to create the game and refined my code thanks to Borna Šepić's tutorial on dev.to : [Pure and Simple - Tic Tac Toe with Javascript](https://dev.to/bornasepic/pure-and-simple-tic-tac-toe-with-javascript-4pgn "Pure and Simple - Tic Tac Toe with Javascript").
+I learned how to create the game and refined my code thanks to Borna Šepić's tutorial on dev.to: [Pure and Simple - Tic Tac Toe with Javascript](https://dev.to/bornasepic/pure-and-simple-tic-tac-toe-with-javascript-4pgn "Pure and Simple - Tic Tac Toe with Javascript").
