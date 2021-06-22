@@ -6,37 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tic Tac Toe challenge game</title>
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <section class="selection">
-    <h1 class="selection__title">Game's parameters</h1>
-    <p class="selection__text">First player chooses their mark:</p>
-    <select class="selection__select" id="markChoice">
-      <option value="x"><img src="assets/img/xMark.png" alt="x mark"></option>
-      <option value="o"><img src="assets/img/oMark.png" alt="o mark"></option>
-    </select>
-    <button class="selection__start" id="buttonStart">Start Game</button>
-  </section>
-  <section class="game">
-    <h1 class="game__title">Tic Tac Toe</h1>
-    <div class="game__grid">
-      <div class="cell" data-cell-index="0">0</div>
-      <div class="cell" data-cell-index="1">1</div>
-      <div class="cell" data-cell-index="2">2</div>
-      <div class="cell" data-cell-index="3">3</div>
-      <div class="cell" data-cell-index="4">4</div>
-      <div class="cell" data-cell-index="5">5</div>
-      <div class="cell" data-cell-index="6">6</div>
-      <div class="cell" data-cell-index="7">7</div>
-      <div class="cell" data-cell-index="8">8</div>
-    </div>
-    <div class="game__log">
-      <label for="log">Game's log:</label>
-      <textarea id="log" cols="40" rows="10"></textarea>
-    </div>
-    <h2 class="game__status" id="game-status"></h2>
-    <button class="game__restart">Restart Game</button>
-  </section>
+  <div class="container">
+    <h1 class="title">Tic Tac Toe</h1>
+    <section class="selection">
+      <h2 class="selection__title">Game's parameters</h2>
+      <p class="selection__text">First player chooses their mark:</p>
+      <div class="selection__select">
+        <img id="x_mark" src="assets/img/xMark.png" data-select-value="x" alt="x mark">
+        <img id="o_mark" src="assets/img/oMark.png" data-select-value="o" alt="o mark">
+      </div>
+    </section>
+    <section class="game">
+      <p class="game__log">Game log</p>
+      <div class="game__grid">
+        <div class="game__cell" data-cell-index="0">0</div>
+        <div class="game__cell" data-cell-index="1">1</div>
+        <div class="game__cell" data-cell-index="2">2</div>
+        <div class="game__cell" data-cell-index="3">3</div>
+        <div class="game__cell" data-cell-index="4">4</div>
+        <div class="game__cell" data-cell-index="5">5</div>
+        <div class="game__cell" data-cell-index="6">6</div>
+        <div class="game__cell" data-cell-index="7">7</div>
+        <div class="game__cell" data-cell-index="8">8</div>
+      </div>
+      <button class="game__restart">Restart Game</button>
+    </section>
+  </div>
 <script src="script.js"></script>
 </body>
 </html>

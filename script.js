@@ -1,7 +1,7 @@
 // Global Variables declaration
 const selectionScreen = document.querySelector(".selection");
 const gameScreen = document.querySelector(".game");
-const logElement = document.getElementById("log");
+const logElement = document.querySelector(".game__log");
 let isGameActive = false;
 let firstPlayer;
 let secondPlayer;
@@ -19,8 +19,9 @@ const winningCombinations = [
 ];
 
 // Add event listeners to elements in the game
-document.getElementById("buttonStart").addEventListener("click", handleStartGame);
-document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+document.getElementById("x_mark").addEventListener("click", handleStartGame);
+document.getElementById("o_mark").addEventListener("click", handleStartGame);
+document.querySelectorAll('.game__cell').forEach(cell => cell.addEventListener('click', handleCellClick));
 document.querySelector('.game__restart').addEventListener('click', handleRestartGame);
 
 // Helper functions
@@ -34,7 +35,7 @@ function determinateFirstTurn(player1, player2)
 // Gets current player's name for the turn
 function getCurrentPlayerTurnMessage()
 {
-  return `It's ${currentPlayer}'s turn.`;
+  return `It's ${currentPlayer.toUpperCase()}'s turn.`;
 }
 
 // Switch to next player's turn
@@ -45,18 +46,18 @@ function switchToNextPlayer() {
 
 // Add to log
 function addToLog(newLog) {
-  logElement.innerHTML += `${newLog}\n`;
+  logElement.innerHTML = `${newLog}\n`;
 }
 
 // Main functions
 // Reboot all info for new game & determinates first player
-function handleStartGame() {
+function handleStartGame(markClickEvent) {
   gridState = ["", "", "", "", "", "", "", "", ""];
   logElement.innerHTML = "";
-  document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
+  document.querySelectorAll('.game__cell').forEach(cell => cell.innerHTML = "");
   isGameActive = true;
 
-  firstPlayer = document.getElementById("markChoice").value;
+  firstPlayer = markClickEvent.target.getAttribute('data-select-value');
   secondPlayer = firstPlayer === "x" ? "o" : "x";
 
   selectionScreen.style.display = "none";
@@ -72,7 +73,7 @@ function handleCellClick(cellClickEvent) {
   const cellIndex = parseInt(cell.getAttribute('data-cell-index'));
 
   if (!isGameActive) {
-    alert("Game's finished!");
+    alert("Game's finished! Restart game!");
     return;
   }
   
@@ -82,7 +83,11 @@ function handleCellClick(cellClickEvent) {
   }
 
   gridState[cellIndex] = currentPlayer;
-  cell.innerHTML = currentPlayer;
+  // const img = document.createElement('img');
+  // img.alt = "";
+  // img.src = currentPlayer === "x" ? 'assets/img/xMark.png' : 'assets/img/oMark.png';
+  // cell.appendChild(img);
+  cell.innerHTML = currentPlayer === "x" ? '<img src="assets/img/xMark.png" alt="">' : '<img src="assets/img/oMark.png" alt="">';
 
   checkGridState();
 }
@@ -108,7 +113,7 @@ function checkGridState() {
 
   // If a winning combination is found, end of the game
   if (isGameWon) {
-    addToLog(`${currentPlayer} player has won the game.`);
+    addToLog(`${currentPlayer.toUpperCase()} player has won the game.`);
     isGameActive = false;
     return;
   }

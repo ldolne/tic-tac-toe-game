@@ -1,24 +1,38 @@
 body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   background-color: #F7EDE2;
-  font-family: Georgia, serif;
-  text-align: center;
+  font-family: 'Raleway', sans-serif;
   font-size: 16px;
   color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 100%;
+  height: 95%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: start;
+  align-items: center;
+}
+.title {
+  font-size: 5rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  border-top: 2px solid #F28482;
+  border-bottom: 2px solid #F6BD60;
 }
 .selection {
+  width: 60%;
+  height: 40%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;
   align-items: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  max-width: 800px;
-  min-height: 50vh;
-  margin: auto;
-  padding: 10px;
-  border: 2px solid #F6BD60;
-  box-shadow: 10px 10px 0 0 #F6BD60;
 }
 .selection__title {
   font-size: 2rem;
@@ -29,62 +43,62 @@ body {
 }
 .selection__select {
   width: 50%;
-  height: auto;
-  font-size: 10rem;
+  text-align: center;
 }
 .selection__select img {
+  margin: 10px;
   cursor: pointer;
   transition: transform 0.5s ease-in;
 }
 .selection__select img:hover {
   transform: rotate(10deg);
 }
-.selection__start {
-  padding: 20px;
-  background-color: #F7EDE2;
-  font-size: 1.5rem;
-  border: 5px solid #F6BD60;
-  border-radius: 20px;
-  transition: background-color 1s ease-out;
-}
-.selection__start:hover {
-  background-color: #F6BD60;
-}
 .game {
+  width: 50%;
+  height: 70%;
+  margin: 10px;
   display: none;
-}
-.btn,
-.game__restart {
-  padding: 20px;
-  background-color: #F7EDE2;
-  font-size: 1.5rem;
-  border: 5px solid #F6BD60;
-  border-radius: 20px;
-  transition: background-color 1s ease-out;
-}
-.btn:hover {
-  background-color: #F6BD60;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .game__grid {
+  width: 80%;
+  max-width: 450px;
+  height: 80%;
+  max-height: 450px;
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  width: 306px;
-  margin: 50px auto;
+  grid-template-columns: repeat(3, 33%);
+  gap: 1%;
+  background-color: white;
 }
-.cell {
-  font-family: "Permanent Marker", cursive;
-  width: 100px;
-  height: 100px;
-  box-shadow: 0 0 0 1px #333333;
-  border: 1px solid #333333;
+.game__cell {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  line-height: 100px;
-  font-size: 60px;
+  background-color: #F7EDE2;
 }
-#log {
-  resize: none;
-  color: #F28482;
+.game__cell img {
+  width: 75%;
+  position: absolute;
+}
+.game__log {
+  font-size: 1.5rem;
+  font-style: italic;
 }
 .game__restart {
-  color: blue;
+  margin: 10px;
+  padding: 10px;
+  background-color: #F7EDE2;
+  color: #e3920d;
+  font-size: 1.5rem;
+  border: 5px solid #F6BD60;
+  border-radius: 20px;
+  transition: background-color 1s ease-out;
+}
+.game__restart:hover {
+  background-color: #F6BD60;
+  color: #F7EDE2;
 }
