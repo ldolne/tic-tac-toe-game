@@ -90,7 +90,7 @@ function handleCellClick(cellClickEvent) {
   }
 
   gridState[cellIndex] = currentPlayer;
-  cell.innerHTML = currentPlayer === "x" ? '<img src="assets/img/xMark.png" alt="">' : '<img src="assets/img/oMark.png" alt="">';
+  cell.innerHTML = currentPlayer === "x" ? '<img src="assets/img/xMark.svg" alt="">' : '<img src="assets/img/oMark.svg" alt="">';
 
   checkGridState();
 }
