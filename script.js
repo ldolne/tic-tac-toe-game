@@ -2,7 +2,7 @@
 const selectionScreen = document.querySelector(".selection");
 const gameScreen = document.querySelector(".game");
 const logElement = document.querySelector(".game__log");
-let isGameActive = false;
+let isGameRunning = false;
 let firstPlayer;
 let secondPlayer;
 let currentPlayer;
@@ -33,7 +33,7 @@ function determinateFirstTurn(player1, player2)
 }
 
 // Gets current player's name for the turn
-function getCurrentPlayerTurnMessage()
+function getCurrentPlayerMessage()
 {
   return `It's ${currentPlayer.toUpperCase()}'s turn.`;
 }
@@ -41,7 +41,7 @@ function getCurrentPlayerTurnMessage()
 // Switch to next player's turn
 function switchToNextPlayer() {
   currentPlayer = currentPlayer === firstPlayer ? secondPlayer : firstPlayer;
-  addToLog(getCurrentPlayerTurnMessage());
+  addToLog(getCurrentPlayerMessage());
 }
 
 // Add to log
@@ -49,13 +49,20 @@ function addToLog(newLog) {
   logElement.innerHTML = `${newLog}\n`;
 }
 
+function refreshGameElements() {
+  gridState = ["", "", "", "", "", "", "", "", ""];
+  logElement.innerHTML = "";
+  logElement.classList = "";
+  logElement.classList.add("game__log");
+  document.querySelectorAll('.game__cell').forEach(cell => cell.innerHTML = "");
+}
+
 // Main functions
 // Reboot all info for new game & determinates first player
 function handleStartGame(markClickEvent) {
-  gridState = ["", "", "", "", "", "", "", "", ""];
-  logElement.innerHTML = "";
-  document.querySelectorAll('.game__cell').forEach(cell => cell.innerHTML = "");
-  isGameActive = true;
+  refreshGameElements();
+
+  isGameRunning = true;
 
   firstPlayer = markClickEvent.target.getAttribute('data-select-value');
   secondPlayer = firstPlayer === "x" ? "o" : "x";
@@ -64,7 +71,7 @@ function handleStartGame(markClickEvent) {
   gameScreen.style.display = "flex";
 
   currentPlayer = determinateFirstTurn(firstPlayer, secondPlayer);
-  addToLog(getCurrentPlayerTurnMessage());
+  addToLog(getCurrentPlayerMessage());
 }
 
 // Handles a click on a cell
@@ -72,7 +79,7 @@ function handleCellClick(cellClickEvent) {
   const cell = cellClickEvent.target;
   const cellIndex = parseInt(cell.getAttribute('data-cell-index'));
 
-  if (!isGameActive) {
+  if (!isGameRunning) {
     alert("Game's finished! Restart game!");
     return;
   }
@@ -83,10 +90,6 @@ function handleCellClick(cellClickEvent) {
   }
 
   gridState[cellIndex] = currentPlayer;
-  // const img = document.createElement('img');
-  // img.alt = "";
-  // img.src = currentPlayer === "x" ? 'assets/img/xMark.png' : 'assets/img/oMark.png';
-  // cell.appendChild(img);
   cell.innerHTML = currentPlayer === "x" ? '<img src="assets/img/xMark.png" alt="">' : '<img src="assets/img/oMark.png" alt="">';
 
   checkGridState();
@@ -113,8 +116,9 @@ function checkGridState() {
 
   // If a winning combination is found, end of the game
   if (isGameWon) {
-    addToLog(`${currentPlayer.toUpperCase()} player has won the game.`);
-    isGameActive = false;
+    addToLog(`${currentPlayer.toUpperCase()} player has won the game!`);
+    logElement.classList.add("text--success");
+    isGameRunning = false;
     return;
   }
 
@@ -124,7 +128,8 @@ function checkGridState() {
 
   if (isGameTie) {
     addToLog("Game's over. It's a tie!");
-    isGameActive = false;
+    logElement.classList.add("text--fail");
+    isGameRunning = false;
     return;
   }
 

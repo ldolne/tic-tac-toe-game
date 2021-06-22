@@ -1,6 +1,15 @@
 @import 'variables';
 @import 'mixins';
 
+:root {
+  font-size: 16px;
+
+  @media screen and (max-width: 480px)
+  {
+    font-size: 12px;
+  }
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -8,11 +17,9 @@ body {
   padding: 0;
   background-color: #colors[bg];
   font-family: @font-family;
-  font-size: 16px;
   #text.text-color(#colors[bg]);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .display-flex-center();
+  text-align: center;
 }
 
 .container
@@ -26,7 +33,7 @@ body {
 }
 
 .title {
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 100;
   text-transform: uppercase;
   border-top: 2px solid #colors[primary];
@@ -34,8 +41,6 @@ body {
 }
 
 .selection {
-  width: 60%;
-  height: 40%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;
@@ -47,17 +52,22 @@ body {
   }
 
   &__text {
+    padding: 0 15px;
     font-size: 1.5rem;
   }
 
   &__select {
-    width: 50%;
-    text-align: center;
+    .display-flex-center();
 
     img {
-      margin: 10px;
+      margin: 0 10px;
       cursor: pointer;
       transition: transform 0.5s ease-in;
+
+      @media screen and (max-width: 480px)
+      {
+        width: 30%;
+      }
     }
 
     img:hover {
@@ -67,36 +77,41 @@ body {
 }
 
 .game {
-  width: 50%;
-  height: 70%;
-  margin: 10px;
   display: none;
   flex-flow: column nowrap;
   justify-content: space-evenly;
   align-items: center;
 
   &__grid {
-    width: 80%;
-    max-width: 450px;
-    height: 80%;
-    max-height: 450px;
+    min-width: 450px;
+    min-height: 450px;
+    margin: 20px 0;
     display: grid;
     grid-template-columns: repeat(3, 33%);
     gap: 1%;
     background-color: #colors[light];
+
+    @media screen and (max-width: 480px)
+    {
+      min-width: 250px;
+      min-height: 250px;
+    }
   }
 
   &__cell {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    .display-flex-center();
     background-color: #colors[bg];
+    cursor: pointer;
 
     img {
       width: 75%;
       position: absolute;
+
+      @media screen and (max-width: 480px)
+      {
+        width: 30%;
+      }
     }
   }
   
@@ -120,4 +135,12 @@ body {
       color: #colors[bg];
     }
   }
+}
+
+.text--success {
+  color: #colors[success];
+}
+
+.text--fail {
+  color: #colors[primary];
 }

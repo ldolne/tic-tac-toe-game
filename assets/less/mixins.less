@@ -1,5 +1,6 @@
 @import 'variables';
 
+// Adapt color of the text based on background's lightness
 #text() {
   .text-color(@background-color) when (lightness(@background-color) >= 50%) {
     color: #colors[dark];
@@ -8,4 +9,10 @@
   .text-color(@background-color) when (lightness(@background-color) < 50%) {
     color: #colors[light];
   }
+}
+
+.display-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

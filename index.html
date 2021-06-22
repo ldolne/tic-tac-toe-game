@@ -14,8 +14,13 @@
   <div class="container">
     <h1 class="title">Tic Tac Toe</h1>
     <section class="selection">
-      <h2 class="selection__title">Game's parameters</h2>
-      <p class="selection__text">First player chooses their mark:</p>
+      <h2 class="selection__title">Game's rules</h2>
+      <p class="selection__text">
+        This is a Tic-Tac-Toe game!<br />
+        Each turn, a player puts their mark in an empty square on the game grid.<br/>
+        The first player to get 3 of their marks in a row wins the game!<br />
+        If all squares are filled and no player has 3 marks in a row, it's a tie and the game is over.<br /><br />
+        First player chooses their mark:</p>
       <div class="selection__select">
         <img id="x_mark" src="assets/img/xMark.png" data-select-value="x" alt="x mark">
         <img id="o_mark" src="assets/img/oMark.png" data-select-value="o" alt="o mark">
@@ -24,15 +29,15 @@
     <section class="game">
       <p class="game__log">Game log</p>
       <div class="game__grid">
-        <div class="game__cell" data-cell-index="0">0</div>
-        <div class="game__cell" data-cell-index="1">1</div>
-        <div class="game__cell" data-cell-index="2">2</div>
-        <div class="game__cell" data-cell-index="3">3</div>
-        <div class="game__cell" data-cell-index="4">4</div>
-        <div class="game__cell" data-cell-index="5">5</div>
-        <div class="game__cell" data-cell-index="6">6</div>
-        <div class="game__cell" data-cell-index="7">7</div>
-        <div class="game__cell" data-cell-index="8">8</div>
+        <div class="game__cell" data-cell-index="0"></div>
+        <div class="game__cell" data-cell-index="1"></div>
+        <div class="game__cell" data-cell-index="2"></div>
+        <div class="game__cell" data-cell-index="3"></div>
+        <div class="game__cell" data-cell-index="4"></div>
+        <div class="game__cell" data-cell-index="5"></div>
+        <div class="game__cell" data-cell-index="6"></div>
+        <div class="game__cell" data-cell-index="7"></div>
+        <div class="game__cell" data-cell-index="8"></div>
       </div>
       <button class="game__restart">Restart Game</button>
     </section>

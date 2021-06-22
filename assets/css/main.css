@@ -1,3 +1,16 @@
+.display-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:root {
+  font-size: 16px;
+}
+@media screen and (max-width: 480px) {
+  :root {
+    font-size: 12px;
+  }
+}
 body {
   width: 100vw;
   height: 100vh;
@@ -5,11 +18,11 @@ body {
   padding: 0;
   background-color: #F7EDE2;
   font-family: 'Raleway', sans-serif;
-  font-size: 16px;
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .container {
   width: 100%;
@@ -20,15 +33,13 @@ body {
   align-items: center;
 }
 .title {
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 100;
   text-transform: uppercase;
   border-top: 2px solid #F28482;
   border-bottom: 2px solid #F6BD60;
 }
 .selection {
-  width: 60%;
-  height: 40%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;
@@ -39,50 +50,64 @@ body {
   text-transform: uppercase;
 }
 .selection__text {
+  padding: 0 15px;
   font-size: 1.5rem;
 }
 .selection__select {
-  width: 50%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .selection__select img {
-  margin: 10px;
+  margin: 0 10px;
   cursor: pointer;
   transition: transform 0.5s ease-in;
+}
+@media screen and (max-width: 480px) {
+  .selection__select img {
+    width: 30%;
+  }
 }
 .selection__select img:hover {
   transform: rotate(10deg);
 }
 .game {
-  width: 50%;
-  height: 70%;
-  margin: 10px;
   display: none;
   flex-flow: column nowrap;
   justify-content: space-evenly;
   align-items: center;
 }
 .game__grid {
-  width: 80%;
-  max-width: 450px;
-  height: 80%;
-  max-height: 450px;
+  min-width: 450px;
+  min-height: 450px;
+  margin: 20px 0;
   display: grid;
   grid-template-columns: repeat(3, 33%);
   gap: 1%;
   background-color: white;
+}
+@media screen and (max-width: 480px) {
+  .game__grid {
+    min-width: 250px;
+    min-height: 250px;
+  }
 }
 .game__cell {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   background-color: #F7EDE2;
+  cursor: pointer;
 }
 .game__cell img {
   width: 75%;
   position: absolute;
+}
+@media screen and (max-width: 480px) {
+  .game__cell img {
+    width: 30%;
+  }
 }
 .game__log {
   font-size: 1.5rem;
@@ -101,4 +126,10 @@ body {
 .game__restart:hover {
   background-color: #F6BD60;
   color: #F7EDE2;
+}
+.text--success {
+  color: #8ea66c;
+}
+.text--fail {
+  color: #F28482;
 }
