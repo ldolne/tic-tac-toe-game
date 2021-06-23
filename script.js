@@ -25,14 +25,14 @@ document.querySelectorAll('.game__cell').forEach(cell => cell.addEventListener('
 document.querySelector('.game__restart').addEventListener('click', handleRestartGame);
 
 // Helper functions
-// Determinates first player
+// Determinate first player
 function determinateFirstTurn(player1, player2)
 {
     let chance = Math.floor(Math.random() * 2);
     return chance === 0 ? player1 : player2;
 }
 
-// Gets current player's name for the turn
+// Get current player's name for the turn
 function getCurrentPlayerMessage()
 {
   return `It's ${currentPlayer.toUpperCase()}'s turn.`;
@@ -49,6 +49,7 @@ function addToLog(newLog) {
   logElement.innerHTML = `${newLog}\n`;
 }
 
+// Refresh game elements before new game
 function refreshGameElements() {
   gridState = ["", "", "", "", "", "", "", "", ""];
   logElement.innerHTML = "";
@@ -74,7 +75,7 @@ function handleStartGame(markClickEvent) {
   addToLog(getCurrentPlayerMessage());
 }
 
-// Handles a click on a cell
+// Handle a click on a cell
 function handleCellClick(cellClickEvent) {
   const cell = cellClickEvent.target;
   const cellIndex = parseInt(cell.getAttribute('data-cell-index'));
@@ -95,7 +96,7 @@ function handleCellClick(cellClickEvent) {
   checkGridState();
 }
 
-// Checks current state of the game grid
+// Check current state of the game grid
 function checkGridState() {
   let isGameWon = false;
 
@@ -138,7 +139,7 @@ function checkGridState() {
   switchToNextPlayer();
 }
 
-// Handles the restart of the game
+// Handle the restart of the game
 function handleRestartGame() {
   let answer = confirm("Do you wish to play again?");
 
